@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DA.Context;
+using Microsoft.Ajax.Utilities;
 
 namespace DA.Controllers
 {
@@ -17,5 +18,11 @@ namespace DA.Controllers
             var objProduct = db.Products.Where(n => n.Id == Id).FirstOrDefault();
             return View(objProduct);
         }
+        public ActionResult Index(string SearchString) 
+        {
+            var lstProduct = db.Products.Where(n => n.Name.Contains(SearchString)).ToList();
+            return View(lstProduct);
+        }
+      
     }
 }

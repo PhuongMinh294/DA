@@ -22,8 +22,9 @@ namespace DA.Controllers
 
             homemodel.ListProduct = db.Products.ToList();
             return View(homemodel);
-        }
 
+        }
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -124,7 +125,8 @@ namespace DA.Controllers
         public ActionResult Logout()
         {
             Session.Clear();//remove session
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
+        
     }
 }
